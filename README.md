@@ -8,9 +8,8 @@
 <pre>python segprocessed_train_word2vec_model.py filename</pre>
 
 ### 用同一目录下的 qqseg_new 工具分词
-'''
-python word2vec.py -input inputfile -output outputfile
-
+<pre>python word2vec.py -input inputfile -output outputfile</pre>
+<pre>
 usage: word2vec.py [-h] [-input INP] [-output OUTPUT] [-window WINDOW]
                    [-size SIZE] [-min_count MIN_COUNT] [-cbow_mean CBOW_MEAN]
                    [-sg SG] [-iters ITERS]
@@ -29,7 +28,7 @@ optional arguments:
   -sg SG                sg defines the training algorithm. By default (sg=0),
                         CBOW is used. Otherwise (sg=1), skip-gram is employed.
   -iters ITERS          number of iterations (epochs) over the corpus.
-'''
+</pre>
 
 ### 计算词向量的模并从大到小排序，输出word - norm of vector
 <pre>python normVector.py
