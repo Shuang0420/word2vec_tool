@@ -9,7 +9,7 @@
 
 ### 用同一目录下的 qqseg_new 工具分词
 '''
-<pre>python word2vec.py -input inputfile -output outputfile
+python word2vec.py -input inputfile -output outputfile
 
 usage: word2vec.py [-h] [-input INP] [-output OUTPUT] [-window WINDOW]
                    [-size SIZE] [-min_count MIN_COUNT] [-cbow_mean CBOW_MEAN]
