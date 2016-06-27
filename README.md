@@ -33,3 +33,34 @@ optional arguments:
 ### 计算词向量的模并从大到小排序，输出word - norm of vector
 <pre>python normVector.py
 </pre>
+
+
+### 测试效果
+<pre>python word2vec_testTool.py
+enter the model you want to check guomei.model
+2016-06-27 16:51:36,856: INFO: loading Word2Vec object from guomei.model
+2016-06-27 16:51:36,973: INFO: setting ignored attribute syn0norm to None
+2016-06-27 16:51:36,973: INFO: setting ignored attribute cum_table to None
+2016-06-27 16:51:46,343: INFO: precomputing L2-norms of word weight vectors
+enter the word 烹饪
+烹调	0.62442278862
+中餐	0.534122824669
+解冻	0.48883074522
+加热	0.479849278927
+食用	0.470198184252
+菜肴	0.466752141714
+做饭	0.462529540062
+炖肉	0.457395881414
+熬汤	0.446689903736
+慢火	0.427767693996
+enter the word 订单
+定单	0.778802156448
+运单	0.682202041149
+账号	0.611731410027
+账户	0.587948918343
+帐号	0.585913598537
+下单	0.5846991539
+单号	0.58408164978
+imei	0.583274126053
+退款	0.578039348125
+货物	0.576778292656</pre>

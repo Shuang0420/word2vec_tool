@@ -44,8 +44,12 @@ def processFile(inp):
     os.system('enca -L zh_CN -x GBK ' + inp)
     # split words
     os.chdir(os.getcwd() + '/' + 'qqseg_new')
-    os.system('./SegTester --input_file=../' +
-              inp + ' --output_file=../output.seg --log_dir=log')
+    if '/' in inp:
+        os.system('./SegTester --input_file=' +
+                  inp + ' --output_file=../output.seg --log_dir=log')
+    else:
+        os.system('./SegTester --input_file=../' +
+                  inp + ' --output_file=../output.seg --log_dir=log')
     os.chdir(path)
     # GBK --> UTF-8
     os.system('enca -L zh_CN -x UTF-8 output.seg')
