@@ -66,7 +66,7 @@ def trainModel(args):
     iters = int(args.iters)
     inp = args.inp
     output = args.output
-    if inp or output:
+    if not (inp and output):
         print 'Please identify the input and output. Use the command "python word2vec.py -input filename -output filename"'
         exit(1)
     processFile(inp)
