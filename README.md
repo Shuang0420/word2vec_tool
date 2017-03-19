@@ -4,10 +4,10 @@
 ### 用python jieba进行分词，训练 word2vec 模型
 <pre>python train_word2vec_model.py all.txt</pre>
 
-### 用同一目录下的 qqseg_new 工具分词
+### 已经分好词的文件训练 word2vec 模型
 <pre>python segprocessed_train_word2vec_model.py filename</pre>
 
-### 已经分好词的文件训练 word2vec 模型
+### 用同一目录下的 qqseg_new 工具分词
 <pre>python word2vec.py -input inputfile -output outputfile</pre>
 <pre>
 usage: word2vec.py [-h] [-input INP] [-output OUTPUT] [-window WINDOW]
