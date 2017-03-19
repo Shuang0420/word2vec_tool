@@ -23,15 +23,19 @@ def simWords(modelname):
         resultsList[word]=results[0]
     l = sorted(resultsList.items(), key=lambda cosList: -cosList[1][1])
     flag = True
-    for i in range(0,1000):
+    sumValue=0
+    for i in range(0,len(l)):
+        sumValue += l[i][1][1]
         if flag:
             print '{}\t{}\t{}'.format(l[i][0], l[i][1][0],l[i][1][1])
             flag=False
         else:
             flag=True
+    avgValue = sumValue / len(l)
+    print avgValue
         #for i in results:
         #    print '{}\t{}'.format(i[0], i[1])
-    simWordsSingle()
+    #simWordsSingle()
 
 
 
@@ -58,6 +62,7 @@ def generateWords(modelname):
 
 if __name__ == '__main__':
     # load model
-    modelname = raw_input('enter the model you want to check ')
+    #modelname = raw_input('enter the model you want to check ')
+    modelname = sys.argv[1]
     model = Word2Vec.load(modelname)
     simWords(modelname)
