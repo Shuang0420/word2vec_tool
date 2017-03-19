@@ -18,7 +18,7 @@ logging.root.setLevel(level=logging.INFO)
 
 def initialize():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-input', action='store', dest='inp', default='',
+    parser.add_argument('-input', action='store', dest='input', default='',
                         help='original input file name')
     parser.add_argument('-output', action='store', dest='output', default='',
                         help='output model name')
@@ -36,6 +36,8 @@ def initialize():
                         help='number of iterations (epochs) over the corpus.')
     parser.add_argument('-model', action='store', dest='model_name',
                         help='if you want to retrain the model, just give the model.')
+    parser.add_argument('-qqseg', action='store', dest='seg_required', default='0',
+                        help='if 0(default), assume the text is already segmented. If 1, run segmentation tool first.')
     return parser.parse_args()
 
 
@@ -68,19 +70,22 @@ def trainModel(args):
     sg = int(args.sg)
     iters = int(args.iters)
     model_name = args.model_name
-    inp = args.inp
+    inp = args.input
     output = args.output
+    seg_required = args.seg_required
     if not (inp and output):
         print 'Please identify the input and output. Use the command "python word2vec.py -input filename -output filename"'
         exit(1)
-    processFile(inp)
+    if seg_required == '1':
+        processFile(inp)
+        inp = 'output.seg'
     if not model_name:
         # train model
-        model = Word2Vec(LineSentence('output.seg'), size=size, window=window,
+        model = Word2Vec(LineSentence(inp), size=size, window=window,
                          min_count=min_count, sg=sg, iter=iters, cbow_mean=cbow_mean, workers=multiprocessing.cpu_count())
         # save model
         model.save(output)
-        model.save_word2vec_format(output + '.vector', binary=False)
+        model.save_word2vec_format(output + '.vec', binary=False)
     else:
         f = open('output.seg', 'r')
         sentences = f.readlines()
